@@ -193,7 +193,7 @@ class Exp_Main(Exp_Basic):
             f = open("result_long_term_forecast.txt", 'a')
             f.write("Epoch: {} cost time: {}".format(epoch + 1, time.time() - epoch_time))
             f.write('\n')
-            f.close()  # 在这里关闭文件
+            f.close()
 
             train_loss = np.average(train_loss)
             vali_loss = self.vali(vali_data, vali_loader, criterion)
@@ -203,14 +203,14 @@ class Exp_Main(Exp_Basic):
             f = open("result_long_term_forecast.txt", 'a')
             f.write("Epoch: {0}, Steps: {1} | Train Loss: {2:.7f} Vali Loss: {3:.7f} Test Loss: {4:.7f}".format(epoch + 1, train_steps, train_loss, vali_loss, test_loss))
             f.write('\n')
-            f.close()  # 在这里关闭文件
+            f.close()
             early_stopping(vali_loss, self.model, path)
             if early_stopping.early_stop:
                 print("Early stopping")
                 f = open("result_long_term_forecast.txt", 'a')
                 f.write("Early stopping")
                 f.write('\n')
-                f.close()  # 在这里关闭文件
+                f.close()
                 break
 
             adjust_learning_rate(model_optim, epoch + 1, self.args)
@@ -228,7 +228,7 @@ class Exp_Main(Exp_Basic):
             f = open("result_long_term_forecast.txt", 'a')
             f.write('loading model')
             f.write('\n')
-            f.close()  # 在这里关闭文件
+            f.close()
 
             self.model.load_state_dict(torch.load(os.path.join('./checkpoints/' + setting, 'checkpoint.pth'), map_location=self.device))
 
