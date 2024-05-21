@@ -94,12 +94,12 @@ if __name__ == '__main__':
     f = open("result_long_term_forecast.txt", 'a')
     f.write('Args in experiment:')
     f.write('\n')
-    f.close()  # 在这里关闭文件
+    f.close() 
     print(args)
     f = open("result_long_term_forecast.txt", 'a')
     f.write(str(args))
     f.write('\n')
-    f.close()  # 在这里关闭文件
+    f.close() 
 
     Exp = Exp_Main
 
@@ -128,14 +128,14 @@ if __name__ == '__main__':
             print('>>>>>>>start training : {}>>>>>>>>>>>>>>>>>>>>>>>>>>'.format(setting))
             f = open("result_long_term_forecast.txt", 'a')
             f.write('>>>>>>>start training : {}>>>>>>>>>>>>>>>>>>>>>>>>>>'.format(setting))
-            f.close()  # 在这里关闭文件
+            f.close() 
             exp.train(setting)
 
             time_now = time.time()
             print('>>>>>>>testing : {}<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'.format(setting))
             f = open("result_long_term_forecast.txt", 'a')
             f.write('>>>>>>>testing : {}<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'.format(setting))
-            f.close()  # 在这里关闭文件
+            f.close() 
 
 
             exp.test(setting)
@@ -151,7 +151,7 @@ if __name__ == '__main__':
                 print('>>>>>>>predicting : {}<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'.format(setting))
                 f = open("result_long_term_forecast.txt", 'a')
                 f.write('>>>>>>>predicting : {}<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'.format(setting))
-                f.close()  # 在这里关闭文件
+                f.close() 
                 exp.predict(setting, True)
 
             torch.cuda.empty_cache()
@@ -180,6 +180,6 @@ if __name__ == '__main__':
         print('>>>>>>>testing : {}<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'.format(setting))
         f = open("result_long_term_forecast.txt", 'a')
         f.write('>>>>>>>testing : {}<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'.format(setting))
-        f.close()  # 在这里关闭文件
+        f.close()  
         exp.test(setting, test=1)
         torch.cuda.empty_cache()
